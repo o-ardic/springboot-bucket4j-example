@@ -1,11 +1,28 @@
+# Caffeine Configuration
 spring:
   cache:
-    jcache:
-      provider: org.ehcache.jsr107.EhcacheCachingProvider
     caffeine:
-      spec: maximumSize=1000000,expireAfterAccess=3600s
+      spec: maximumSize=1000000,expireAfterAccess=600s
     cache-names:
       - buckets
+
+# Redis Configuration
+#spring:
+#  cache:
+#    cache-names:
+#      - buckets
+#  redis:
+#    host: localhost
+#    port: 6379
+
+# Hazelcast Configuration
+#spring:
+#  cache:
+#    jcache:
+#      provider: com.hazelcast.cache.impl.HazelcastServerCachingProvider
+#      config: classpath:hazelcast.xml
+#    cache-names:
+#      - buckets
 
 bucket4j:
   enabled: true
